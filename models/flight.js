@@ -14,11 +14,23 @@ const flightSchema = new Schema({
 flightNo: {
     type: Number,
     min: 10,
-    max: 9999
+    max: 9999,
+    default: 0
 },
  departs: {
      type: Date
 }
+destination: {
+    type: destinationSchema
+}
 });
+
+const destinationSchema = newSchema({
+    airport: {
+        type: String,
+        eum: ['AUS', 'DFW', 'DEN', 'LAX' & 'SAN']
+    }
+    arrival:
+})
 
 module.exports = mongoose.model('Flight', flightSchema);
