@@ -24,8 +24,8 @@
                   <td><%= f.airline %></td>
                   <td><%= f.airport %></td>
                   <td><%= f.flight %></td>
-                  <td><%= f.departs.join(', ') %></td>
-                  <td><%= f.nowShowing ? 'Yes' : 'Nope' %></td>
+                  <td><%= f.departs %></td>
+                  <td><a href= "/flights<%= t.id %>">Details</a></td>
               </tr>
           <% }); %>
       </tbody>

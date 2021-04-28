@@ -10,23 +10,25 @@
 <body>
   <h2>Enter a New Flight</h2>
   <form action="/flights" method="POST">
-    <label>Airline:
+    <label>Airline:</label>
       <select name="airline">
         <option value ="American">American</option>
         <option value ="Southwest">Southwest</option>
         <option value ="United">United</option>
       </select>
-    </label><br>
-    <label>Airport:
-      <input type="text" name="airport">
-    </label><br>
-    <label>Flight No:
-      <input type ="text" name="flightno">
-    </label><br>
-    <label>Departs:
-      <input type= "datetime-local" name="depart">
-    </label><br>
-    <input type="submit" value="Add Flights">
+    <label>Airport: </label>
+      <select name ="airport">
+          <option value= "AUS">AUS</option>
+          <option value ="DFW">DFW</option>
+          <option value ="DEN">DEN</option>
+          <option value = "LAX">LAX</option>
+          <option value = "SAN">SAN</option>
+      </select>
+    <label>Flight No:</label>
+      <input type ="number" name="flightno" min="10" max = "9999">
+      <label> Departure Date </label>
+      <input type = "datetime-local" name = "departs">
+      <input type = "submit" value="Add Flight">
   </form>
 </body>
 </html>
