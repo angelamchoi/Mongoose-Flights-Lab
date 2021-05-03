@@ -1,17 +1,26 @@
 const Ticket = require('../models/ticket');
 
-const newTicketForm = (req,res) => {
-
+// new ticket
+const newTicket=(req,res) =>{
+    let flightID=req.params.id;
+    res.render ('tickets/new', {title: 'Add a new ticket', flightID});
 }
 
-
-const addTicket=(req,res) => {
-    
+// add ticket
+const addTicket=(req,res) =>{
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    const newItem=new Ticket(req.body);
+    newItem.flight=req.params.id;
+    newItem.save(function(err){
+        if (err) return res.redirect(`/flights/${req.params.id}/tickets/new`);
+        res.redirect(`/flights/${req.params.id}`);
+    })
 }
 
-
-
+// exports
 module.exports= {
-    newTicketForm,
+    newTicket,
     addTicket
 }

@@ -1,35 +1,47 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const Schema=mongoose.Schema;
 
-const flightSchema = new Schema({
-    airline: {
-        type: String
- },
-    airport: {
-        type: String,
-        default: 'DEN'
- },
-    flightNo: {
-        type: Number,
-        min: 10,
-        max: 9999,
-        default: 0
-},
-    departs: {
-     type: Date
-},
-    destinations: [destinationSchema]
+// one year from today date
+// used stack overflow to research this
+const today = new Date();
+const day = String(today.getDate())
+const month = String(today.getMonth())
+const year = today.getFullYear();
+const addOneYear= year + 1;
+let nextYear = month + "/" + day + "/" +addOneYear;
 
-});
-
-const destinationSchema = newSchema({
-    airport: {
-        type: String
+// destination
+const destinationSchema= new Schema({
+    airport:{
+        type:String,
+        default: 'n/a'
     },
     arrival:{
         type: Date,
-        default:
+        default: nextYear
     }
 })
 
-module.exports = mongoose.model('Flight', flightSchema);
+// fight
+const flightSchema=new Schema({
+    airline:{
+        type:String,
+        default: 'n/a'
+    },
+    airport: {
+        type:String,
+        default:'Den'
+    },
+    flightNo:{
+        type: Number,
+        default: 0
+    },
+    departs:{
+        type: Date,
+        default: nextYear
+    },
+    destinations:[destinationSchema]
+
+});
+
+module.exports= mongoose.model('flight', flightSchema);

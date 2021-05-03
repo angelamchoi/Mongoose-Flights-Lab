@@ -5,13 +5,13 @@ const ticketsCtrl = require('../controllers/tickets');
 
 // flights
 router.get('/', flightsCtrl.index);
-router.get('/newFlight', flightsCtrl.newFlightForm);
-router.post('/newFlight', flightsCtrl.addFlight);
+router.get('/newflight', flightsCtrl.newFlight);
+router.post('/newflight', flightsCtrl.addFlight);
 router.get('/:id',flightsCtrl.show);
-router.post('/:id/destination', flightsCtrl.addDestinations);
+router.post('/:id/des', flightsCtrl.addDestinations);
 
 //tickets
-router.get
-router.post
+router.get('/:id/tickets/new', ticketsCtrl.newTicket);
+router.post('/:id/tickets/new', ticketsCtrl.addTicket);
 
 module.exports = router;

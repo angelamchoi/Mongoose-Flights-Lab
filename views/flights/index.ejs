@@ -9,26 +9,25 @@
 </head>
 <body>
   <h1>Flight List</h1>
-  <table>
-      <thead>
-          <tr>
-              <th>Airline</th>
-              <th>Airport</th>
-              <th>Flight No.</th>
-              <th>Departs</th>
+  <table class="table">
+        <tr>
+            <th scope="col">Airline</th>
+            <th scope="col">Airport</th>
+            <th scope="col">Flight No.</th>
+            <th scope="col">Departure Date</th>
+            <th scope="col"></th>
           </tr>
-      </thead>
-      <tbody>
-          <% flights.forEach(function(f { %>
-              <tr>
-                  <td><%= f.airline %></td>
-                  <td><%= f.airport %></td>
-                  <td><%= f.flight %></td>
-                  <td><%= f.departs %></td>
-                  <td><a href= "/flights<%= t.id %>">Details</a></td>
-              </tr>
-          <% }); %>
-      </tbody>
-  </table>
+    <tobdy>
+        <% flights.forEach(function(t){ %>
+        <tr>
+            <td><%= t.airline %></td>
+            <td><%= t.airport %></td>
+            <td><%= t.flightNo %></td>
+            <td><%= t.departs %></td>
+            <td><a href="/flights/<%= t.id %>">Details</a></td>
+        </tr>
+        <% }) %>
+    </tobdy>
+</table>
 </body>
 </html>
